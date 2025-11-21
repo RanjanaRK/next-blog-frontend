@@ -1,8 +1,9 @@
-// "use client";
+"use client";
 
-import { LogOut } from "lucide-react";
+import { LogOut, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { useState } from "react";
 
 // import { useState } from "react";
 // import Link from "next/link";
@@ -95,26 +96,43 @@ import { Button } from "./ui/button";
 // }
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   return (
     <>
       <nav className="w-full bg-white shadow-md sticky top-0 z-50">
         <div className=" mx-auto px-4 flex items-center justify-between h-16">
-          <Link href={"/"} className="text-2xl font-bold">
+          {/* Logo */}
+          <Link href="/" className="text-2xl font-bold">
             myBlog
           </Link>
 
-          <nav className="flex items-center gap-4">
-            {/* <Link"admin ></Link> */}
-            {/* <Header />
-            <ThemeButton /> */}
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-4">
+            <Button variant="outline">Login</Button>
+            <Button>Signup</Button>
+            <Link href="/profile" className="text-gray-700 hover:text-black">
+              Profile
+            </Link>
+          </div>
+
+          {/* Mobile Hamburger */}
+          <button className="md:hidden" onClick={() => setOpen(!open)}>
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        {open && (
+          <div className="md:hidden bg-white shadow-inner px-4 py-4 space-y-4 animate-slideDown">
             <Button variant="outline" className="w-full">
               Login
             </Button>
             <Button className="w-full">Signup</Button>
-            <LogOut />
-            <Link href={"/profile"}>profile</Link>
-          </nav>
-        </div>
+            <Link href="/profile" className="block text-gray-700 font-medium">
+              Profile
+            </Link>
+          </div>
+        )}
       </nav>
     </>
   );
