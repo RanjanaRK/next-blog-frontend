@@ -1,6 +1,10 @@
+import getPosts from "@/hooks/getPosts";
 import BlogCard from "./BlogCard";
 
-const BlogDisplay = () => {
+const BlogDisplay = async () => {
+  const abc = await getPosts();
+  console.log(abc);
+
   return (
     <>
       <div className="min-h-screen w-full bg-linear-to-tl from-indigo-100 via-purple-300 to-pink-100 grid grid-cols-3 place-items-center gap-6 p-4">
