@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Logout from "./Auth/Logout";
 
 export default function ProfilePage() {
   return (
@@ -60,9 +61,7 @@ export default function ProfilePage() {
           {/* Buttons */}
           <div className="flex gap-4 pt-4">
             <Button className="flex-1">Edit Profile</Button>
-            <Button variant="secondary" className="flex-1">
-              Logout
-            </Button>
+            <Logout />
           </div>
         </CardContent>
       </Card>

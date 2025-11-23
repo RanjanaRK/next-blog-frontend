@@ -108,8 +108,13 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline">Login</Button>
-            <Button>Signup</Button>
+            <Button variant="outline">
+              {" "}
+              <Link href="/auth" className="block text-gray-700 font-medium">
+                Login
+              </Link>
+            </Button>
+
             <Link href="/profile" className="text-gray-700 hover:text-black">
               Profile
             </Link>
@@ -125,7 +130,9 @@ const Navbar = () => {
         {open && (
           <div className="md:hidden bg-white shadow-inner px-4 py-4 space-y-4 animate-slideDown">
             <Button variant="outline" className="w-full">
-              Login
+              <Link href="/auth" className="block text-gray-700 font-medium">
+                Login
+              </Link>
             </Button>
             <Button className="w-full">Signup</Button>
             <Link href="/profile" className="block text-gray-700 font-medium">

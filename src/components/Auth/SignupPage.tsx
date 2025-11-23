@@ -16,6 +16,7 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { registerFormSchema } from "@/lib/zodSchema";
+import regsiter from "@/hooks/auth/regsiter";
 
 const RegisterForm = () => {
   const [vis, setVis] = useState(false);
@@ -38,7 +39,8 @@ const RegisterForm = () => {
   const { isSubmitting, isValid } = rhform.formState;
 
   const registerFormFunc = async (rfData: RegisterFormType) => {
-    console.log(rfData);
+    // console.log(rfData);
+    await regsiter(rfData);
   };
 
   return (

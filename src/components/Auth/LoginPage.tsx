@@ -1,5 +1,6 @@
 "use client";
 
+import { loginAction } from "@/action/login";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -10,21 +11,24 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { login } from "@/hooks/auth/login";
+// import login from "@/hooks/auth/login";
 import { LoginFormType } from "@/lib/types";
 import { loginFormSchema } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Loader2, LogIn } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-
-import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [vis, setVis] = useState(false);
 
+  const { push } = useRouter();
+
   const rhform = useForm<LoginFormType>({
     defaultValues: {
-      email: "",
+      identifier: "",
       password: "",
     },
     resolver: zodResolver(loginFormSchema),
@@ -34,7 +38,13 @@ const LoginForm = () => {
   const { isSubmitting, isValid } = rhform.formState;
 
   const loginFormFunc = async (lfData: LoginFormType) => {
-    console.log(lfData);
+    const { success, data, message } = await login(lfData);
+    console.log(data);
+
+    if (success) {
+      alert(message);
+      push("/");
+    }
   };
 
   return (
@@ -42,7 +52,7 @@ const LoginForm = () => {
       <form onSubmit={rhform.handleSubmit(loginFormFunc)} className="space-y-4">
         <FormField
           control={rhform.control}
-          name="email"
+          name="identifier"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-gray-900">Email</FormLabel>
