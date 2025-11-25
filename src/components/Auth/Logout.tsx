@@ -1,13 +1,15 @@
 "use client";
 import logout from "@/hooks/auth/logout";
 import { Button } from "../ui/button";
+import { deleteSession } from "@/lib/session";
+import { redirect } from "next/navigation";
 
 const Logout = () => {
   //   const router = useRouter();
 
   const handleLogout = async () => {
-    alert("clicked");
-    await logout();
+    await deleteSession();
+    redirect("/auth");
   };
 
   return (
