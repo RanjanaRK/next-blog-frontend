@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { decryptSession } from "./lib/session";
 
-const protectedRoutes = ["/profile", "/auth/change-password", "/"];
+const protectedRoutes = ["/profile"];
 const publicRoutes = ["/auth"];
 
 const proxy = async (req: NextRequest) => {
@@ -11,7 +11,7 @@ const proxy = async (req: NextRequest) => {
   const isPublicRoute = publicRoutes.includes(path);
 
   // Get cookie from the Incoming Request (middleware allowed)
-  const cookie = req.cookies.get("session")?.value;
+  const cookie = req.cookies.get("mysession")?.value;
 
   // Decrypt cookie
   const session = await decryptSession(cookie);
@@ -32,5 +32,5 @@ const proxy = async (req: NextRequest) => {
 export default proxy;
 
 export const config = {
-  matcher: ["/profile", "/"],
+  matcher: ["/profile"],
 };

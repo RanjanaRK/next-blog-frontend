@@ -1,11 +1,12 @@
-"use client";
-
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Logout from "./Auth/Logout";
+import getAuthUser from "@/hooks/getAuthUser";
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+  await getAuthUser();
+
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center p-6">
       <Card className="w-full max-w-2xl rounded-3xl shadow-xl bg-white">

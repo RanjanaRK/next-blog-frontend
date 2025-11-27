@@ -42,7 +42,7 @@ export async function createSession(payload: SessionPayload) {
   const cookieStore = await cookies();
 
   // Set the cookie with the session token
-  cookieStore.set("session", session, {
+  cookieStore.set("mysession", session, {
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
     secure: false,
     expires: expiresAt,
@@ -56,5 +56,5 @@ export async function createSession(payload: SessionPayload) {
 // Deletes the session cookie to log out the user
 export async function deleteSession() {
   const cookieStore = await cookies();
-  cookieStore.delete("session");
+  cookieStore.delete("mysession");
 }

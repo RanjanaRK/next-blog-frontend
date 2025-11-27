@@ -3,9 +3,6 @@
 import kyClient from "@/lib/ky/kyClient";
 import { createSession } from "@/lib/session";
 
-import ky from "ky";
-import { cookies } from "next/headers";
-
 export async function login(data: { identifier: string; password: string }) {
   try {
     const response: any = await kyClient
