@@ -5,22 +5,14 @@ import Logout from "./Auth/Logout";
 import getAuthUser from "@/hooks/getAuthUser";
 
 export default async function ProfilePage() {
-  await getAuthUser();
+  const userData = await getAuthUser();
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center p-6">
       <Card className="w-full max-w-2xl rounded-3xl shadow-xl bg-white">
         <CardHeader className="flex flex-col items-center gap-4 pt-8">
-          <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-white">
-            {/* <Image
-              src="/profile.jpg"
-              alt="User profile"
-              fill
-              className="object-cover"
-            /> */}
-          </div>
           <CardTitle className="text-2xl font-semibold text-gray-900">
-            John Doe
+            {userData.username}
           </CardTitle>
           <p className="text-gray-500 text-sm">Full Stack Developer</p>
         </CardHeader>
@@ -30,7 +22,7 @@ export default async function ProfilePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <p className="text-gray-400 text-sm">Email</p>
-              <p className="text-gray-800 font-medium">johndoe@example.com</p>
+              <p className="text-gray-800 font-medium">{userData.email}</p>
             </div>
 
             <div>
@@ -45,7 +37,9 @@ export default async function ProfilePage() {
 
             <div>
               <p className="text-gray-400 text-sm">Member Since</p>
-              <p className="text-gray-800 font-medium">Jan 2023</p>
+              <p className="text-gray-800 font-medium">
+                {userData.publishedAt}
+              </p>
             </div>
           </div>
 

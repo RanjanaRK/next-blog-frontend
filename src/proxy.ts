@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { decryptSession } from "./lib/session";
 
-const protectedRoutes = ["/profile"];
+const protectedRoutes = ["/profile", "/"];
 const publicRoutes = ["/auth"];
 
 const proxy = async (req: NextRequest) => {
@@ -32,5 +32,5 @@ const proxy = async (req: NextRequest) => {
 export default proxy;
 
 export const config = {
-  matcher: ["/profile"],
+  matcher: ["/profile", "/"],
 };

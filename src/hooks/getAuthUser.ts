@@ -6,7 +6,6 @@ import { cookies } from "next/headers";
 
 const getAuthUser = async () => {
   const cookie = await (await cookies()).get("mysession")?.value;
-  console.log(cookie);
 
   const session = await decryptSession(cookie);
   const strapiJwt = session?.jwt;
