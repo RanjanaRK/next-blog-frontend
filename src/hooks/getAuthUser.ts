@@ -21,7 +21,7 @@ const getAuthUser = async () => {
 
     console.log(res);
 
-    return res;
+    return res as any;
   } catch (error) {}
 };
 

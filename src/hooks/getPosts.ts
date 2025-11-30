@@ -19,7 +19,7 @@ const getPosts = async () => {
       })
       .json();
 
-    return posts;
+    return posts as any[];
   } catch (err) {
     console.error("Error fetching posts:", err);
     throw err;
