@@ -2,6 +2,7 @@
 
 import kyServer from "@/lib/ky/kyServer";
 import { decryptSession } from "@/lib/session";
+import { StrapiResponse, User } from "@/lib/types";
 import { cookies } from "next/headers";
 
 const getAuthUser = async () => {
@@ -17,11 +18,11 @@ const getAuthUser = async () => {
           Authorization: `Bearer ${strapiJwt}`,
         },
       })
-      .json();
+      .json<User>();
 
     console.log(res);
 
-    return res as any;
+    return res;
   } catch (error) {}
 };
 

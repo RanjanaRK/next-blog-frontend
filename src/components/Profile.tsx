@@ -12,7 +12,7 @@ export default async function ProfilePage() {
       <Card className="w-full max-w-2xl rounded-3xl shadow-xl bg-white">
         <CardHeader className="flex flex-col items-center gap-4 pt-8">
           <CardTitle className="text-2xl font-semibold text-gray-900">
-            {userData.username}
+            {userData?.username}
           </CardTitle>
           <p className="text-gray-500 text-sm">Full Stack Developer</p>
         </CardHeader>
@@ -22,7 +22,7 @@ export default async function ProfilePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <p className="text-gray-400 text-sm">Email</p>
-              <p className="text-gray-800 font-medium">{userData.email}</p>
+              <p className="text-gray-800 font-medium">{userData?.email}</p>
             </div>
 
             <div>
@@ -38,7 +38,7 @@ export default async function ProfilePage() {
             <div>
               <p className="text-gray-400 text-sm">Member Since</p>
               <p className="text-gray-800 font-medium">
-                {userData.publishedAt}
+                {userData?.publishedAt}
               </p>
             </div>
           </div>

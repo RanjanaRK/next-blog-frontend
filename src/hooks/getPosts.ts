@@ -1,8 +1,6 @@
-// import { kyServer } from "@/lib/ky/kyServer";
-"use server";
-
 import kyServer from "@/lib/ky/kyServer";
 import { decryptSession } from "@/lib/session";
+import { Item, StrapiResponse } from "@/lib/types";
 import { cookies } from "next/headers";
 
 const getPosts = async () => {
@@ -13,13 +11,11 @@ const getPosts = async () => {
   try {
     const posts = await kyServer
       .get("api/posts?populate=*", {
-        headers: {
-          Authorization: `Bearer ${strapiJwt}`,
-        },
+        headers: { Authorization: `Bearer ${strapiJwt}` },
       })
-      .json();
+      .json<StrapiResponse<Item>>();
 
-    return posts as any[];
+    return posts; // now correct shape
   } catch (err) {
     console.error("Error fetching posts:", err);
     throw err;
