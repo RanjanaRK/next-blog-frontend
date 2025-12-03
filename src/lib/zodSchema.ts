@@ -18,3 +18,21 @@ export const registerFormSchema = z
     path: ["confirmPassword"],
     message: "Passwords do not match",
   });
+
+export const blogFormSchema = z.object({
+  title: z
+    .string()
+    .min(5, { message: "Title must be at least 5 characters." })
+    .max(100, { message: "Title must not be longer than 100 characters." }),
+  content: z.string().min(200, {
+    message: "Blog content must be at least 200 characters.",
+  }),
+  slug: z
+    .string()
+    .min(5, { message: "Slug must be at least 5 characters." })
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
+      message: "Slug must be lowercase and hyphenated (e.g., my-awesome-post).",
+    }),
+
+  category: z.string(),
+});
