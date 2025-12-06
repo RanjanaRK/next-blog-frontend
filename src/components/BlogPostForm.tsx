@@ -28,11 +28,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import createBlog from "@/hooks/createBlog";
-import { BlogFormSchemaType } from "@/lib/types";
+import { BlogFormSchemaType, Category } from "@/lib/types";
 import { blogFormSchema } from "@/lib/zodSchema";
+import { createSlug } from "@/lib/createSlug";
 
-const BlogPostForm = () => {
-  //   const [categories, setCategories] = useState([]);
+const BlogPostForm = ({
+  categories,
+  userId,
+}: {
+  categories: Category[];
+  userId: string;
+}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const form = useForm({
@@ -45,9 +51,16 @@ const BlogPostForm = () => {
     },
   });
 
+  const title = form.watch("title");
+
+  const handleTitleBlur = () => {
+    form.setValue("slug", createSlug(title), { shouldValidate: true });
+  };
+
   const blogSubmit = async (bData: BlogFormSchemaType) => {
-    const abc = await createBlog(bData);
+    const abc = await createBlog(bData, userId);
     console.log(abc);
+    console.log(bData);
   };
 
   return (
@@ -99,7 +112,11 @@ const BlogPostForm = () => {
                 <FormItem>
                   <FormLabel>Slug</FormLabel>
                   <FormControl>
-                    <Input placeholder="auto-generated slug" {...field} />
+                    <Input
+                      placeholder="auto-generated slug"
+                      {...field}
+                      onBlur={handleTitleBlur}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -123,11 +140,14 @@ const BlogPostForm = () => {
                     </FormControl>
 
                     <SelectContent>
-                      {/* {categories.map((cat: any) => (
-                      <SelectItem key={cat.id} value={String(cat.id)}>
-                        {cat.attributes.name}
-                      </SelectItem>
-                    ))} */}
+                      {categories.map((cat: any) => (
+                        <SelectItem
+                          key={cat.documentId}
+                          value={String(cat.documentId)}
+                        >
+                          {cat.name}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
 

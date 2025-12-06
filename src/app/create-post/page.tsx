@@ -1,9 +1,17 @@
 import BlogPostForm from "@/components/BlogPostForm";
+import getAuthUser from "@/hooks/getAuthUser";
+import getCategory from "@/hooks/getCategory";
 
-const page = () => {
+const page = async () => {
+  const categories = await getCategory();
+  const userData = await getAuthUser();
   return (
     <>
-      <BlogPostForm />
+      <BlogPostForm
+        categories={categories?.data || []}
+        userId={userData?.documentId!}
+      />
+      ;
     </>
   );
 };
