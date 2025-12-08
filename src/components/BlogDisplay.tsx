@@ -18,22 +18,6 @@ const BlogDisplay = async () => {
             date={bPosts.createdAt}
           />
         ))}
-
-        <BlogCard
-          title="Mastering Next.js Server Actions"
-          description="Learn how to build fast, scalable apps using the new Server Actions in Next.js 14..."
-          image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-          author="Sparkle K"
-          date="2025-11-21"
-        />
-
-        <BlogCard
-          title="Mastering Next.js Server Actions"
-          description="Learn how to build fast, scalable apps using the new Server Actions in Next.js 14..."
-          image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-          author="Sparkle K"
-          date="2025-11-21"
-        />
       </div>
     </>
   );
