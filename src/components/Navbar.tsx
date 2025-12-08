@@ -1,10 +1,9 @@
 "use client";
 
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import AuthNavMenu from "./AuthNavMenu";
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
 
 const Navbar = ({ jwt }: { jwt: string | null }) => {
   const [open, setOpen] = useState(false);
