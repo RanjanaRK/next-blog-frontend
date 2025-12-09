@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Logout from "./Auth/Logout";
 import getAuthUser from "@/hooks/getAuthUser";
+import Link from "next/link";
 
 export default async function ProfilePage() {
   const userData = await getAuthUser();
@@ -55,7 +56,9 @@ export default async function ProfilePage() {
 
           {/* Buttons */}
           <div className="flex gap-4 pt-4">
-            <Button className="flex-1">Edit Profile</Button>
+            <Link href={"/profile/update"} className="flex-1">
+              Edit Profile
+            </Link>
             <Logout />
           </div>
         </CardContent>

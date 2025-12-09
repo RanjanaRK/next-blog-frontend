@@ -5,8 +5,10 @@ import CreatePostButton from "@/components/CreatePostButton";
 const page = () => {
   return (
     <>
-      <BlogDisplay />
-      <CreatePostButton />
+      <div className="relative">
+        <BlogDisplay />
+        <CreatePostButton />
+      </div>
     </>
   );
 };

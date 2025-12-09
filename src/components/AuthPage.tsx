@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import LoginForm from "./Auth/LoginPage";
 import RegisterForm from "./Auth/SignupPage";
 
-export default function AuthPage() {
+const AuthPage = () => {
   return (
     <div className="min-h-screen w-full bg-linear-to-br from-indigo-100 via-purple-300 to-pink-100 flex items-center justify-center p-4">
       <Tabs defaultValue="login" className="w-full max-w-md">
@@ -67,4 +67,6 @@ export default function AuthPage() {
       </Tabs>
     </div>
   );
-}
+};
+
+export default AuthPage;

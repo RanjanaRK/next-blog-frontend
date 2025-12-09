@@ -13,9 +13,9 @@ const BlogDisplay = async () => {
             key={bPosts.id}
             title={bPosts.title}
             description={bPosts.content}
-            image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+            // image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
             author={bPosts.users_permissions_user?.username}
-            date={bPosts.createdAt}
+            date={bPosts.publishedAt}
           />
         ))}
       </div>

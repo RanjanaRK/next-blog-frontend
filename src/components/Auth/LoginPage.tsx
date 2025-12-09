@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { login } from "@/hooks/auth/login";
-// import login from "@/hooks/auth/login";
 import { LoginFormType } from "@/lib/types";
 import { loginFormSchema } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -38,7 +37,6 @@ const LoginForm = () => {
 
   const loginFormFunc = async (lfData: LoginFormType) => {
     const { success, data, message } = await login(lfData);
-    console.log(data);
 
     if (success) {
       alert(message);

@@ -6,23 +6,14 @@ import Image from "next/image";
 export default function BlogCard({
   title,
   description,
-  image,
+
   author,
-  publishedAt,
+  date,
 }: any) {
   return (
     <>
       <Card className="w-full max-w-md rounded-2xl shadow-lg overflow-hidden bg-white group transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
         {/* Image */}
-        <div className="relative w-full h-56">
-          {/* <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-all duration-500 group-hover:scale-110"
-          /> */}
-          <img src={image} alt={title} className="w-full h-full object-cover" />
-        </div>
 
         <CardHeader>
           <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
@@ -33,7 +24,7 @@ export default function BlogCard({
 
           <div className="flex items-center justify-between pt-2 border-t text-sm text-gray-600">
             <span>✍️ {author}</span>
-            <span>📅 {publishedAt}</span>
+            <span>📅 {date}</span>
           </div>
         </CardContent>
       </Card>

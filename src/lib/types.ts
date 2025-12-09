@@ -2,12 +2,14 @@ import z from "zod";
 import {
   blogFormSchema,
   loginFormSchema,
+  profileFormSchema,
   registerFormSchema,
 } from "./zodSchema";
 
 export type LoginFormType = z.infer<typeof loginFormSchema>;
 export type RegisterFormType = z.infer<typeof registerFormSchema>;
 export type BlogFormSchemaType = z.infer<typeof blogFormSchema>;
+export type ProfileFormSchemaType = z.infer<typeof profileFormSchema>;
 
 export interface StrapiResponse<T> {
   data: T[];
