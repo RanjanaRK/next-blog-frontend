@@ -16,22 +16,31 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { profileFormSchema } from "@/lib/zodSchema";
-import { ProfileFormSchemaType } from "@/lib/types";
+import { ProfileFormSchemaType, User } from "@/lib/types";
+import editProfile from "@/hooks/editProfile";
 
-const EditProfileForm = () => {
+const EditProfileForm = ({
+  userId,
+  userD,
+}: {
+  userId: number;
+  userD: User;
+}) => {
   const form = useForm({
     resolver: zodResolver(profileFormSchema),
     defaultValues: {
-      name: "John",
+      username: "John",
       bio: "Full Stack Developer",
       email: "john@gmail.com",
       location: "Mumbai, India",
     },
   });
 
-  const onSubmit = (data: ProfileFormSchemaType) => {
+  const onSubmit = async (data: ProfileFormSchemaType) => {
     console.log("Updated Profile:", data);
-    // Call API here
+    const abc = await editProfile(data, userId);
+
+    console.log(abc);
   };
 
   return (
@@ -43,10 +52,9 @@ const EditProfileForm = () => {
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {/* Full Name */}
             <FormField
               control={form.control}
-              name="name"
+              name="username"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Full Name</FormLabel>
@@ -58,7 +66,6 @@ const EditProfileForm = () => {
               )}
             />
 
-            {/* Title */}
             <FormField
               control={form.control}
               name="bio"
@@ -73,7 +80,6 @@ const EditProfileForm = () => {
               )}
             />
 
-            {/* Email */}
             <FormField
               control={form.control}
               name="email"
@@ -92,7 +98,6 @@ const EditProfileForm = () => {
               )}
             />
 
-            {/* Location */}
             <FormField
               control={form.control}
               name="location"

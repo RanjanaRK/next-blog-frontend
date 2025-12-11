@@ -38,8 +38,8 @@ export const blogFormSchema = z.object({
 });
 
 export const profileFormSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  bio: z.string().min(2, "Title is required"),
-  email: z.string().email("Invalid email"),
-  location: z.string().min(2, "Location is required"),
+  username: z.string().min(3),
+  email: z.string().email(),
+  bio: z.string(),
+  location: z.string().optional(),
 });

@@ -1,10 +1,12 @@
 import EditProfileForm from "@/components/EditProfileForm";
 import ProfilePage from "@/components/Profile";
+import getAuthUser from "@/hooks/getAuthUser";
 
-const page = () => {
+const page = async () => {
+  const userData = await getAuthUser();
   return (
     <div>
-      <EditProfileForm />
+      <EditProfileForm userId={userData?.id!} userD={userData!} />
     </div>
   );
 };
