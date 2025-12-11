@@ -1,5 +1,4 @@
 import EditProfileForm from "@/components/EditProfileForm";
-import ProfilePage from "@/components/Profile";
 import getAuthUser from "@/hooks/getAuthUser";
 
 const page = async () => {
