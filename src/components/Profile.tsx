@@ -1,10 +1,7 @@
-import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Logout from "./Auth/Logout";
 import getAuthUser from "@/hooks/getAuthUser";
 import Link from "next/link";
-
+import Logout from "./Auth/Logout";
 export default async function ProfilePage() {
   const userData = await getAuthUser();
 
@@ -19,7 +16,6 @@ export default async function ProfilePage() {
         </CardHeader>
 
         <CardContent className="space-y-6 px-8 pb-10">
-          {/* User Info */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <p className="text-gray-400 text-sm">Email</p>
