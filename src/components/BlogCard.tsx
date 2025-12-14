@@ -13,10 +13,10 @@ export default function BlogCard({
   return (
     <>
       <Card className="w-full max-w-md rounded-2xl shadow-lg overflow-hidden bg-white group transition-all duration-500 hover:scale-[1.03] hover:shadow-xl">
-        {/* Image */}
-
         <CardHeader>
-          <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+          <h2 className="text-xl font-semibold text-gray-900 capitalize">
+            {title}
+          </h2>
         </CardHeader>
 
         <CardContent className="space-y-3">
@@ -24,7 +24,7 @@ export default function BlogCard({
 
           <div className="flex items-center justify-between pt-2 border-t text-sm text-gray-600">
             <span>✍️ {author}</span>
-            <span>📅 {date}</span>
+            <span>📅{new Date(date).toLocaleDateString()}</span>
           </div>
         </CardContent>
       </Card>

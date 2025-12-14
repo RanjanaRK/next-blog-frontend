@@ -7,8 +7,8 @@ const BlogDisplay = async () => {
 
   return (
     <>
-      <div className="min-h-screen w-full bg-linear-to-tl from-indigo-100 via-purple-300 to-pink-100 grid grid-cols-3 place-items-center gap-6 p-4">
-        {blogPosts.data.map((bPosts) => (
+      <div className="min-h-screen w-full grid grid-cols-3 place-items-center gap-6 p-4">
+        {blogPosts?.data.map((bPosts) => (
           <BlogCard
             key={bPosts.id}
             title={bPosts.title}

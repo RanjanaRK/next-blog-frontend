@@ -4,7 +4,7 @@ import CreatePostButton from "@/components/CreatePostButton";
 const page = () => {
   return (
     <>
-      <div className="relative">
+      <div className="relative mx-auto max-w-7xl">
         <BlogDisplay />
         <CreatePostButton />
       </div>

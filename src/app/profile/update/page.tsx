@@ -4,7 +4,7 @@ import getAuthUser from "@/hooks/getAuthUser";
 const page = async () => {
   const userData = await getAuthUser();
   return (
-    <div>
+    <div className="h-dvh  pt-6">
       <EditProfileForm userId={userData?.id!} userD={userData!} />
     </div>
   );

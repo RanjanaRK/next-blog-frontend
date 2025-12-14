@@ -65,7 +65,7 @@ const BlogPostForm = ({
 
   return (
     <>
-      <div className="max-w-xl mx-auto mt-10">
+      <div className="max-w-3xl mx-auto pt-4">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(blogSubmit)}

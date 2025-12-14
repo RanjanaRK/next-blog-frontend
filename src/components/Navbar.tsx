@@ -10,7 +10,7 @@ const Navbar = ({ jwt }: { jwt: string | null }) => {
 
   return (
     <>
-      <nav className="w-full bg-white shadow-md sticky top-0 z-50">
+      <nav className="mx-auto bg-white  sticky top-0 z-50 max-w-7xl">
         <div className=" mx-auto px-4 flex items-center justify-between h-16">
           <Link href="/" className="text-2xl font-bold">
             myBlog

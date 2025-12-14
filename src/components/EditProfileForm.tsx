@@ -45,7 +45,7 @@ const EditProfileForm = ({
 
   return (
     <>
-      <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-md rounded-xl">
+      <div className="max-w-3xl mx-auto  p-6  bg-white shadow-md rounded-xl">
         <h2 className="text-2xl font-semibold mb-6 text-center">
           Edit Profile
         </h2>

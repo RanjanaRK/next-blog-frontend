@@ -36,7 +36,9 @@ const RootLayout = async ({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header jwt={strapiJwt} />
-        {children}
+        <main className="bg-linear-to-tl from-indigo-100 via-purple-300 to-pink-100  ">
+          {children}
+        </main>
       </body>
     </html>
   );

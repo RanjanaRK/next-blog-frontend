@@ -18,7 +18,6 @@ const getPosts = async () => {
     return posts; // now correct shape
   } catch (err) {
     console.error("Error fetching posts:", err);
-    throw err;
   }
 };
 

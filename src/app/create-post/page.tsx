@@ -7,10 +7,12 @@ const page = async () => {
   const userData = await getAuthUser();
   return (
     <>
-      <BlogPostForm
-        categories={categories?.data || []}
-        userId={userData?.documentId!}
-      />
+      <div className="mx-auto max-w-7xl ">
+        <BlogPostForm
+          categories={categories?.data || []}
+          userId={userData?.documentId!}
+        />
+      </div>
       ;
     </>
   );
