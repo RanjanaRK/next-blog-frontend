@@ -15,13 +15,6 @@ export async function login(data: { identifier: string; password: string }) {
     const user = response.user;
 
     await createSession({ documentId: user.id, email: user.email, jwt });
-    // const token = response.jwt;
-
-    // (await cookies()).set("token", token, {
-    //   httpOnly: true,
-    //   secure: true,
-    //   path: "/",
-    // });
 
     return { success: true, data: response, message: "login successfully" };
   } catch (err) {
