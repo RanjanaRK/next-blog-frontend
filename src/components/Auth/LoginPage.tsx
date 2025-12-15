@@ -36,7 +36,7 @@ const LoginForm = () => {
   const { isSubmitting, isValid } = rhform.formState;
 
   const loginFormFunc = async (lfData: LoginFormType) => {
-    const { success, data, message } = await login(lfData);
+    const { success, message } = await login(lfData);
 
     if (success) {
       alert(message);
